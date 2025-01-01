@@ -28,7 +28,6 @@ echo "==> Installing apt packages needed by the tutorial"
 apt install -y \
     autoconf \
     automake \
-    awscli \
     bash-completion \
     bzip2 \
     clang \
