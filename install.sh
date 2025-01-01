@@ -61,7 +61,7 @@ apt install -y \
     patch \
     pciutils \
     python3-pip \
-    rsync \
+    python3-venv \
     rsync \
     sudo \
     tree \
@@ -70,13 +70,17 @@ apt install -y \
     wget \
     zlib1g-dev
 
+echo "==> Setting up a Python virtual environment"
+python3 -m venv .tutorial-env
+source .tutorial-env/bin/activate
+
 echo "==> Installing python3 packages needed by the tutorial"
-python3 -m pip install --upgrade pip \
+pip install --upgrade pip \
     setuptools \
     wheel \
     gnureadline \
     boto3 \
-    awscli  # needed if we upgrdae boto3
+    awscli
 
 
 echo "==> Cleaning up old apt files"
