@@ -123,7 +123,7 @@ sudo services containerd start
 echo "==> Enabling password login"
 perl -i~ -pe 's/^\#?PasswordAuthentication.*/PasswordAuthentication yes/' /etc/ssh/sshd_config
 perl -i~ -pe 's/^\#?PasswordAuthentication.*/PasswordAuthentication yes/' /etc/ssh/sshd_config.d/*.conf
-service sshd restart
+service ssh restart
 
 
 echo "==> Cleaning up home directories"
