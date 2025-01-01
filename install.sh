@@ -19,6 +19,12 @@ REMOTE_BUILDCACHE_URL="s3://spack-binaries/releases/v0.23/tutorial"
 # directory containing this script
 script_dir="$(dirname $0)"
 
+# suppress interactive prompts during package installations
+export DEBIAN_FRONTEND=noninteractive
+
+# preconfigure mail system to avoid prompt
+echo "postfix postfix/main_mailer_type string No configuration" | debconf-set-selections
+
 echo "==> Doing apt updates"
 apt update -y
 apt upgrade -y
@@ -60,7 +66,7 @@ apt install -y \
     patch \
     pciutils \
     python3-pip \
-    python3-venv \
+    python3.12-venv
     rsync \
     sudo \
     tree \
